@@ -1,0 +1,30 @@
+{
+    "name": "quanta/class-names",
+    "type": "library",
+    "description": "Library for collecting class names from various sources",
+    "keywords": [],
+    "license": "MIT",
+    "homepage": "https://github.com/quanta/class-names",
+    "support": {
+        "issues": "https://github.com/quanta/class-names/issues",
+        "source": "https://github.com/quanta/class-names"
+    },
+    "authors": [
+        {
+            "name": "pmall",
+            "email": "pierre.mallinjoud@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "kahlan/kahlan": "^4.0",
+        "eloquent/phony-kahlan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Quanta\\Utils\\": "src"
+        }
+    }
+}
