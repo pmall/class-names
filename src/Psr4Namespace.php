@@ -62,9 +62,11 @@ final class Psr4Namespace implements ClassNamesInterface
     private function directories(): \Generator
     {
         foreach ($this->directories as $root) {
-            yield $root => new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator($root)
-            );
+            if (is_dir($root)) {
+                yield $root => new \RecursiveIteratorIterator(
+                    new \RecursiveDirectoryIterator($root)
+                );
+            }
         }
     }
 
