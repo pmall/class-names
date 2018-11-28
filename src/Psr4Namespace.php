@@ -96,7 +96,7 @@ final class Psr4Namespace implements ClassNamesInterface
         foreach ($this->paths() as $root => $path) {
             $x = substr($path, strlen($root) + 1, -4);
 
-            yield $path => $this->namespace . str_replace('/', '\\', $x);
+            yield $this->namespace . str_replace('/', '\\', $x);
         }
     }
 }
