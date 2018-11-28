@@ -42,7 +42,7 @@ final class Psr4Namespace implements ClassNamesInterface
      */
     public function __construct(string $namespace, string $directory, string ...$directories)
     {
-        $this->namespace = $namespace;
+        $this->namespace = rtrim($namespace, '\\');
         $this->directories = array_merge([$directory], $directories);
     }
 
@@ -96,7 +96,7 @@ final class Psr4Namespace implements ClassNamesInterface
         foreach ($this->paths() as $root => $path) {
             $x = substr($path, strlen($root) + 1, -4);
 
-            yield $this->namespace . str_replace('/', '\\', $x);
+            yield implode('', [$this->namespace, '\\', str_replace('/', '\\', $x)]);
         }
     }
 }
