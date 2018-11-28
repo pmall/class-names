@@ -51,7 +51,7 @@ final class Psr4Namespace implements ClassNamesInterface
      */
     public function classes(): array
     {
-        return iterator_to_array($this->fqcn());
+        return array_values(iterator_to_array($this->fqcn()));
     }
 
     /**
@@ -87,7 +87,7 @@ final class Psr4Namespace implements ClassNamesInterface
     }
 
     /**
-     * Yield the fully qualified class name of the namespace classes.
+     * Yield the non redundant fully qualified class name of the classes.
      *
      * @return \Generator
      */
@@ -96,7 +96,9 @@ final class Psr4Namespace implements ClassNamesInterface
         foreach ($this->paths() as $root => $path) {
             $x = substr($path, strlen($root) + 1, -4);
 
-            yield implode('', [$this->namespace, '\\', str_replace('/', '\\', $x)]);
+            $fqcn = implode('', [$this->namespace, '\\', str_replace('/', '\\', $x)]);
+
+            yield $fqcn => $fqcn;
         }
     }
 }
