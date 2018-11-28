@@ -2,7 +2,7 @@
 
 namespace Quanta\Utils;
 
-final class Psr4Namespace
+final class Psr4Namespace implements ClassNamesInterface
 {
     /**
      * The pattern a file name must match to be considered as a file containing
