@@ -2,7 +2,7 @@
 
 namespace Quanta\Utils;
 
-interface ClassNamesInterface
+interface ClassNameCollectionInterface
 {
     /**
      * Return an array of class names.

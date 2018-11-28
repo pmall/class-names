@@ -1,7 +1,7 @@
 <?php
 
 use Quanta\Utils\Psr4Namespace;
-use Quanta\Utils\ClassNamesInterface;
+use Quanta\Utils\ClassNameCollectionInterface;
 
 describe('Psr4Namespace', function () {
 
@@ -29,9 +29,9 @@ describe('Psr4Namespace', function () {
 
         });
 
-        it('should implement ClassNamesInterface', function () {
+        it('should implement ClassNameCollectionInterface', function () {
 
-            expect($this->namespace)->toBeAnInstanceOf(ClassNamesInterface::class);
+            expect($this->namespace)->toBeAnInstanceOf(ClassNameCollectionInterface::class);
 
         });
 

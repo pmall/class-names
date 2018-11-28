@@ -1,13 +1,13 @@
 <?php
 
 use Quanta\Utils\VendorDirectory;
-use Quanta\Utils\ClassNamesInterface;
+use Quanta\Utils\ClassNameCollectionInterface;
 
 describe('VendorDirectory', function () {
 
-    it('should implement ClassNamesInterface', function () {
+    it('should implement ClassNameCollectionInterface', function () {
 
-        expect(new VendorDirectory(''))->toBeAnInstanceOf(ClassNamesInterface::class);
+        expect(new VendorDirectory(''))->toBeAnInstanceOf(ClassNameCollectionInterface::class);
 
     });
 

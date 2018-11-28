@@ -2,7 +2,7 @@
 
 namespace Quanta\Utils;
 
-final class VendorDirectory implements ClassNamesInterface
+final class VendorDirectory implements ClassNameCollectionInterface
 {
     /**
      * The vendor dir path.
