@@ -5,21 +5,25 @@ use Quanta\Utils\ClassNameCollectionInterface;
 
 describe('VendorDirectory', function () {
 
-    it('should implement ClassNameCollectionInterface', function () {
+    context('when the vendor directory does not contain a composer/autoload_psr4.php file', function () {
 
-        expect(new VendorDirectory(''))->toBeAnInstanceOf(ClassNameCollectionInterface::class);
+        beforeEach(function () {
 
-    });
+            $this->collection = new VendorDirectory(__DIR__ . '/.test/vendor1');
 
-    describe('->classes()', function () {
+        });
 
-        context('when the composer/autoload_psr4.php file does not exist', function () {
+        it('should implement ClassNameCollectionInterface', function () {
+
+            expect($this->collection)->toBeAnInstanceOf(ClassNameCollectionInterface::class);
+
+        });
+
+        describe('->classes()', function () {
 
             it('should return an empty array', function () {
 
-                $directory = new VendorDirectory(__DIR__ . '/test/vendor1');
-
-                $test = $directory->classes();
+                $test = $this->collection->classes();
 
                 expect($test)->toEqual([]);
 
@@ -27,15 +31,29 @@ describe('VendorDirectory', function () {
 
         });
 
-        context('when the composer/autoload_psr4.php exists', function () {
+    });
 
-            context('when the composer/autoload_psr4.php does not return an array', function () {
+    context('when the vendor directory contains a composer/autoload_psr4.php file', function () {
+
+        context('when the composer/autoload_psr4.php file does not return an array', function () {
+
+            beforeEach(function () {
+
+                $this->collection = new VendorDirectory(__DIR__ . '/.test/vendor2');
+
+            });
+
+            it('should implement ClassNameCollectionInterface', function () {
+
+                expect($this->collection)->toBeAnInstanceOf(ClassNameCollectionInterface::class);
+
+            });
+
+            describe('->classes()', function () {
 
                 it('should return an empty array', function () {
 
-                    $directory = new VendorDirectory(__DIR__ . '/test/vendor2');
-
-                    $test = $directory->classes();
+                    $test = $this->collection->classes();
 
                     expect($test)->toEqual([]);
 
@@ -43,13 +61,27 @@ describe('VendorDirectory', function () {
 
             });
 
-            context('when the composer/autoload_psr4.php returns an array', function () {
+        });
+
+        context('when the composer/autoload_psr4.php file returns an array', function () {
+
+            beforeEach(function () {
+
+                $this->collection = new VendorDirectory(__DIR__ . '/.test/vendor3');
+
+            });
+
+            it('should implement ClassNameCollectionInterface', function () {
+
+                expect($this->collection)->toBeAnInstanceOf(ClassNameCollectionInterface::class);
+
+            });
+
+            describe('->classes()', function () {
 
                 it('should return the class names defined in the vendor directory', function () {
 
-                    $directory = new VendorDirectory(__DIR__ . '/test/vendor3');
-
-                    $test = $directory->classes();
+                    $test = $this->collection->classes();
 
                     expect($test)->toBeAn('array');
                     expect($test)->toHaveLength(9);

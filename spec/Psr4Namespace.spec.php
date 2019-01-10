@@ -21,17 +21,17 @@ describe('Psr4Namespace', function () {
 
         beforeEach(function () {
 
-            $this->namespace = new Psr4Namespace('Test', ...[
-                __DIR__ . '/test/vendor3/dir1',
-                __DIR__ . '/test/vendor3/dir2',
-                __DIR__ . '/test/vendor3/nonexisting',
+            $this->collection = new Psr4Namespace('Test', ...[
+                __DIR__ . '/.test/vendor3/dir1',
+                __DIR__ . '/.test/vendor3/dir2',
+                __DIR__ . '/.test/vendor3/nonexisting',
             ]);
 
         });
 
         it('should implement ClassNameCollectionInterface', function () {
 
-            expect($this->namespace)->toBeAnInstanceOf(ClassNameCollectionInterface::class);
+            expect($this->collection)->toBeAnInstanceOf(ClassNameCollectionInterface::class);
 
         });
 
@@ -39,7 +39,7 @@ describe('Psr4Namespace', function () {
 
             it('should return the class names of the namespace', function () {
 
-                $test = $this->namespace->classes();
+                $test = $this->collection->classes();
 
                 expect($test)->toBeAn('array');
                 expect($test)->toHaveLength(7);
