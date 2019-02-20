@@ -4,10 +4,10 @@
     "description": "Library for collecting class names from various sources",
     "keywords": [],
     "license": "MIT",
-    "homepage": "https://github.com/quanta/class-names",
+    "homepage": "https://github.com/quantaphp/class-names",
     "support": {
-        "issues": "https://github.com/quanta/class-names/issues",
-        "source": "https://github.com/quanta/class-names"
+        "issues": "https://github.com/quantaphp/class-names/issues",
+        "source": "https://github.com/quantaphp/class-names"
     },
     "authors": [
         {
